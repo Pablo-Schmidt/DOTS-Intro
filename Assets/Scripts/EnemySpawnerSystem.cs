@@ -54,9 +54,9 @@ public partial class EnemySpawnerSystem : SystemBase
             Rotation = Quaternion.identity,
             Scale = 1
         });
-        
 
 
+        EntityManager.AddComponentData(newEnemy, new EnemyComponent { currentHealth = availableEnemies[index].health });
          nextSpawnTime = (float) SystemAPI.Time.ElapsedTime + enemySpawnerComponent.spawnCooldown; 
     }
 
