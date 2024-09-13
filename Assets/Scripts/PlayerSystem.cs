@@ -56,7 +56,7 @@ public partial struct PlayerSystem : ISystem
             LocalTransform bulletTransform = entityManager.GetComponentData<LocalTransform>(bulletEntity);
             bulletTransform.Rotation = entityManager.GetComponentData<LocalTransform>(playerEntity).Rotation;
             LocalTransform playerTransform = entityManager.GetComponentData<LocalTransform>(playerEntity);
-            bulletTransform.Position = playerTransform.Position + playerTransform.Right() + playerTransform.Up() * -0.35f;
+            bulletTransform.Position = playerTransform.Position + playerTransform.Right() + playerTransform.Up() * -0.05f;
             ECB.SetComponent(bulletEntity, bulletTransform);
 
             ECB.Playback(entityManager);
