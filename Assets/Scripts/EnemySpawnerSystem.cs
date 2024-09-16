@@ -54,12 +54,12 @@ public partial class EnemySpawnerSystem : SystemBase
 
         int index = random.NextInt(availableEnemies.Count);
 
-        // Spawn 5 enemies in a wave
+        // Spawn 5 enemies in a wave!!!
         for (int i = 0; i < 5; i++)
         {
             Entity newEnemy = EntityManager.Instantiate(availableEnemies[index].prefab);
 
-            // Set the spawn position with a slight offset in the x direction
+            // Set the spawn position with offset in the x direction
             float xOffset = -5f + (i * 2f); 
             EntityManager.SetComponentData(newEnemy, new LocalTransform
             {
@@ -71,7 +71,6 @@ public partial class EnemySpawnerSystem : SystemBase
             EntityManager.AddComponentData(newEnemy, new EnemyComponent { currentHealth = availableEnemies[index].health });
         }
 
-        // Set the next spawn time to 3 seconds from the current time
         nextSpawnTime = (float)SystemAPI.Time.ElapsedTime + 3f;
     }
 
@@ -79,7 +78,6 @@ public partial class EnemySpawnerSystem : SystemBase
     {
         foreach (var (enemyComponent, transformComponent) in SystemAPI.Query<EnemyComponent, RefRW<LocalTransform>>())
         {
-            // Move enemy downwards
             float3 position = transformComponent.ValueRW.Position;
             position.y -= SystemAPI.Time.DeltaTime * 2f; 
 
