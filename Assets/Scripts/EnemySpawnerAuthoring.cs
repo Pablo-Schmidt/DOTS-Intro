@@ -6,7 +6,7 @@ using Unity.Mathematics;
 
 public class EnemySpawnerAuthoring : MonoBehaviour
 {
-    public float spawnCooldown = 1;
+    public float spawnCooldown = 10;
     public List<EnemySO> enemiesSO;
 
     public class EnemySpawnerBaker : Baker<EnemySpawnerAuthoring>
